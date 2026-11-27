@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#11141b" />
+    <title>Micdrop — Local Voice AI</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/controls.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/"
+          ><span class="brand-mark">m</span><span>micdrop</span></a
+        >
+        <div class="top-status">
+          <i id="status-dot"></i
+          ><span id="status-text">Checking local models</span>
+        </div>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">PRIVATE BY DESIGN · LOCAL INFERENCE</p>
+        <h1>Your voice, <span>your models.</span></h1>
+        <p class="lede">
+          Run compatible ASR, chat and speech models on your own machine. Audio
+          is sent only to the inference endpoints configured for this server.
+        </p>
+      </section>
+
+      <section class="conversation card" aria-label="Voice conversation">
+        <div class="conversation-head">
+          <div>
+            <span class="eyebrow">VOICE SESSION</span>
+            <h2>Talk naturally</h2>
+          </div>
+          <span id="session-label" class="session-label"
+            >No active session</span
+          >
+        </div>
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="empty-state" id="empty-state">
+            <div class="orb"><span>◖</span></div>
+            <strong>Ready when you are</strong
+            ><span
+              >Start a session and speak. Pause briefly to send your turn.</span
+            >
+          </div>
+        </div>
+        <div class="controls">
+          <button id="start-button" class="primary-button" type="button">
+            <span class="mic-icon">◉</span><span>Start talking</span>
+          </button>
+          <button
+            id="stop-button"
+            class="icon-button"
+            type="button"
+            aria-label="End session"
+            title="End session"
+            disabled
+          >
+            ■
+          </button>
+          <label class="record-choice"
+            ><input id="save-audio" type="checkbox" /> Save microphone
+            audio</label
+          >
+          <span class="control-hint" id="control-hint"
+            >Microphone permission is requested after you start.</span
+          >
+        </div>
+        <div class="notice" id="notice" role="status" hidden></div>
+      </section>
+
+      <section class="tools-grid">
+        <article class="card tool-card">
+          <div class="tool-icon">↗</div>
+          <div class="tool-copy">
+            <p class="eyebrow">TRANSCRIBE</p>
+            <h3>Audio to text</h3>
+            <p>
+              Upload WAV, WebM, MP3, M4A, OGG or FLAC for a timestamped
+              transcript.
+            </p>
+          </div>
+          <label class="upload-button"
+            >Choose audio<input
+              id="audio-file"
+              type="file"
+              accept="audio/*,.wav,.mp3,.webm,.m4a,.ogg,.flac"
+          /></label>
+          <label class="save-choice"
+            ><input id="save-transcript" type="checkbox" /> Save transcript for
+            later</label
+          >
+          <div id="upload-result" class="upload-result" hidden></div>
+        </article>
+        <article class="card tool-card model-card">
+          <div class="tool-icon">⌘</div>
+          <div class="tool-copy">
+            <p class="eyebrow">LOCAL RUNTIMES</p>
+            <h3>Model connections</h3>
+            <p>
+              Manage ASR, chat and speech generation in your local model
+              servers.
+            </p>
+          </div>
+          <div id="model-list" class="model-list">
+            <span>Loading status…</span>
+          </div>
+        </article>
+      </section>
+
+      <footer>
+        <span>Micdrop Audio AI</span
+        ><span>Open-source · Express.js · Your hardware</span>
+      </footer>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

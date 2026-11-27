@@ -1,0 +1,33 @@
+.record-choice,
+.save-choice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+.record-choice {
+  white-space: nowrap;
+}
+.record-choice input,
+.save-choice input {
+  accent-color: var(--lime);
+}
+.save-choice {
+  margin-left: 47px;
+}
+.upload-result a {
+  display: inline-block;
+  margin-top: 7px;
+  color: var(--lime);
+}
+@media (max-width: 650px) {
+  .record-choice {
+    font-size: 9px;
+    white-space: normal;
+  }
+  .control-hint {
+    max-width: 110px;
+  }
+}
